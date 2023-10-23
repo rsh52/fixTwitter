@@ -1,6 +1,6 @@
 # fixTwitter Bot
 
-[![Connect-Deployment](https://github.com/rsh52/fixTwitter/workflows/run_bot/badge.svg)](https://github.com/rsh52/fixTwitter/workflows/run_bot/actions)
+[![Bot-Deployment](https://github.com/rsh52/fixTwitter/workflows/run_bot/badge.svg)](https://github.com/rsh52/fixTwitter/workflows/run_bot/actions)
 
 This is a Discord bot that detects X or Twitter links and converts them to fixupx links. It is written in Python and requires a `BOT_TOKEN` equal to the Discord Bot API token.
 
