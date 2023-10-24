@@ -9,3 +9,7 @@ You can clone this repo using:
 ```
 gh repo clone rsh52/fixTwitter
 ```
+
+## Usage
+
+![Example Usage](img/example.gif)
