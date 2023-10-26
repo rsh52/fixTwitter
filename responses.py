@@ -20,10 +20,5 @@ def get_response(message: str) -> str:
 
     if p_message == 'help':
         return '`This is a simple bot, please be kind to it. You can interact with it by using "??", but primarily all it does is change twitter.com and x.com to fixup.com.`'
-       
-    if "twitter.com" in p_message:
-        return p_message.replace("twitter.com", "fixupx.com")
-    if "x.com" in p_message:
-        return p_message.replace("x.com", "fixupx.com")
 
     return 'I don\'t know what you said.'

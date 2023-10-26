@@ -2,6 +2,7 @@ import responses
 import discord
 from dotenv import load_dotenv
 import os
+import asyncio
 
 load_dotenv()
 
@@ -56,7 +57,7 @@ def run_discord_bot():
     async def on_message(message):
         if message.author == client.user:
             return
-
+        
         username = str(message.author)
         user_message = str(message.content)
         channel = str(message.channel)
@@ -65,6 +66,17 @@ def run_discord_bot():
 
         if user_message.startswith('??'):
             user_message = user_message[2:]
-            await send_message(message, user_message, is_private=False)
+            if 'x.com' in user_message:
+                new_content = user_message.replace("x.com", "fixupx.com")
+                await message.delete()  # Delete the user's message
+                await message.channel.send(f"fixTwitter post by `{username}`")
+                await message.channel.send(new_content) # Send a new message with updated content
+            elif 'twitter.com' in user_message:
+                new_content = user_message.replace("twitter.com", "fixuptwitter.com")
+                await message.delete()  # Delete the user's message
+                await message.channel.send(f"fixTwitter post by `{username}`")
+                await message.channel.send(new_content) # Send a new message with updated content
+            else:
+                await send_message(message, user_message, is_private=False)
 
     client.run(TOKEN)
