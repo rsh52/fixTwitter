@@ -2,11 +2,11 @@ import responses
 import discord
 from dotenv import load_dotenv
 import os
-import asyncio
 
 load_dotenv()
 
-BOT_TOKEN = os.getenv('BOT_TOKEN')
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
 
 async def send_message(message, user_message, is_private):
     """
@@ -30,6 +30,7 @@ async def send_message(message, user_message, is_private):
     except discord.errors.HTTPException as e:
         print(e)
 
+
 def run_discord_bot():
     """
     Runs a Discord bot that listens for messages and responds to them.
@@ -46,36 +47,41 @@ def run_discord_bot():
         None
     """
     TOKEN = BOT_TOKEN
-    intents=discord.Intents.default()
+    intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
+
     @client.event
     async def on_ready():
-        print(f'{client.user} has connected to Discord!')
+        print(f"{client.user} has connected to Discord!")
 
     @client.event
     async def on_message(message):
         if message.author == client.user:
             return
-        
+
         username = str(message.author)
         user_message = str(message.content)
         channel = str(message.channel)
 
         print(f"{username} said: '{user_message}' ({channel})")
 
-        if user_message.startswith('??'):
+        if user_message.startswith("??"):
             user_message = user_message[2:]
-            if 'x.com' in user_message:
+            if "x.com" in user_message:
                 new_content = user_message.replace("x.com", "fixupx.com")
                 await message.delete()  # Delete the user's message
                 await message.channel.send(f"fixTwitter post by `{username}`")
-                await message.channel.send(new_content) # Send a new message with updated content
-            elif 'twitter.com' in user_message:
-                new_content = user_message.replace("twitter.com", "fixuptwitter.com")
+                await message.channel.send(
+                    new_content
+                )  # Send a new message with updated content
+            elif "twitter.com" in user_message:
+                new_content = user_message.replace("twitter.com", "fixupx.com")
                 await message.delete()  # Delete the user's message
                 await message.channel.send(f"fixTwitter post by `{username}`")
-                await message.channel.send(new_content) # Send a new message with updated content
+                await message.channel.send(
+                    new_content
+                )  # Send a new message with updated content
             else:
                 await send_message(message, user_message, is_private=False)
 
