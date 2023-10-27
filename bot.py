@@ -68,7 +68,10 @@ def run_discord_bot():
 
         if user_message.startswith("??"):
             user_message = user_message[2:]
-            if "x.com" in user_message:
+            if user_message.startswith('ping'):
+                latency = round(client.latency * 1000)  # Convert latency to milliseconds
+                await message.channel.send(f'Pong! Latency is {latency}ms')
+            elif "x.com" in user_message:
                 new_content = user_message.replace("x.com", "fixupx.com")
                 await message.delete()  # Delete the user's message
                 await message.channel.send(f"fixTwitter post by `{username}`")
