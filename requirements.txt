@@ -37,7 +37,7 @@ python-dotenv==1.0.0
 pyzmq==25.1.1
 six==1.16.0
 stack-data==0.6.3
-tornado==6.4.2
+tornado==6.5.1
 traitlets==5.11.2
 wcwidth==0.2.8
 yarl==1.9.2
