@@ -33,7 +33,7 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
 Pygments==2.20.0
 python-dateutil==2.8.2
-python-dotenv==1.0.0
+python-dotenv==1.2.2
 pyzmq==25.1.1
 six==1.16.0
 stack-data==0.6.3
